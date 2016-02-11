@@ -6,11 +6,11 @@
   "repository": "",
   "license": "Proprietary",
   "private": true,
+  "engine": "node 0.12.7",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
-    "node": "0.12.7",
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "1.0.8",
     "bookshelf": "~0.6.4",
