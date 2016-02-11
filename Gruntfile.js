@@ -82,6 +82,7 @@ module.exports = function(grunt) {
 
     shell: {
       prodServer: {
+
       },
       heroku: {
         command: 'git push heroku master',
@@ -91,7 +92,7 @@ module.exports = function(grunt) {
         }
       },
       gitAddApp: {
-        command: 'git add public/dist/shortly-express.min.js public/dist/style.min.css',
+        command: 'git add .',
         options: {
           stdout: true,
           stderr: true
@@ -147,24 +148,17 @@ module.exports = function(grunt) {
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
       // add your production server task here
-      
+      grunt.task.run('build');
+      grunt.task.run('shell:gitAddApp');
+      grunt.task.run('shell:gitCommit');
+      grunt.task.run('shell:heroku');  
     } else {
       grunt.task.run([ 'server-dev' ]);
     }
   });
   
-  grunt.registerTask('heroku', [
-    'build',
-    'shell:heroku'  
-  ]);
-  
   grunt.registerTask('deploy', [
-    // add your deploy tasks here
-    // 'shell:heroku',
-    // 'shell:gitAddApp',
-    // 'shell:gitCommit'
-    'jshint',
-    'uglify',
-    'cssmin',
+    'test',
+    'server-dev'
   ]);
 };
