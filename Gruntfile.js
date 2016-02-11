@@ -8,8 +8,8 @@ module.exports = function(grunt) {
       },
       dist: {
         src: [
-        'public/client/*.js',
-        'public/lib/*.js'
+          'public/client/*.js',
+          'public/lib/*.js'
         ],
         dest: 'public/dist/shortly-express.js'
       }
@@ -33,8 +33,8 @@ module.exports = function(grunt) {
 
     uglify: {
       dist:{
-        src: 'dist/shortly-express.js',
-        dest: 'dist/shortly-express.min.js'
+        src: 'public/dist/shortly-express.js',
+        dest: 'public/dist/shortly-express.min.js'
       }
     },
 
@@ -58,7 +58,7 @@ module.exports = function(grunt) {
     cssmin: {
       target:{
         files: [{
-          'dist/style.min.css': 'public/style.css'
+          'public/dist/style.min.css': 'public/style.css'
         }]
       }
     },
@@ -82,8 +82,29 @@ module.exports = function(grunt) {
 
     shell: {
       prodServer: {
+      },
+      heroku: {
+        command: 'git push heroku master',
+        options: {
+          stdout: true,
+          stderr: true
+        }
+      },
+      gitAddApp: {
+        command: 'git add public/dist/shortly-express.min.js public/dist/style.min.css',
+        options: {
+          stdout: true,
+          stderr: true
+        }
+      },
+      gitCommit:{
+        command: 'git commit -m "commited changes"',
+        options:{
+          stderr: true,
+          stdout: true
+        }
       }
-    },
+    } 
   });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -131,11 +152,19 @@ module.exports = function(grunt) {
       grunt.task.run([ 'server-dev' ]);
     }
   });
-
+  
+  grunt.registerTask('heroku', [
+    'build',
+    'shell:heroku'  
+  ]);
+  
   grunt.registerTask('deploy', [
     // add your deploy tasks here
-    
+    // 'shell:heroku',
+    // 'shell:gitAddApp',
+    // 'shell:gitCommit'
+    'jshint',
+    'uglify',
+    'cssmin',
   ]);
-
-
 };
