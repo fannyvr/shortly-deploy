@@ -1,12 +1,12 @@
 {
   "name": "shortly-express",
   "version": "0.0.1",
+  "engine": "node 0.12.7",
   "description": "shortly using express",
   "main": "index.js",
   "repository": "",
   "license": "Proprietary",
   "private": true,
-  "engine": "node 0.12.7",
   "scripts": {
     "start": "node index.js"
   },
