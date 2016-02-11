@@ -8,7 +8,7 @@ module.exports = function(grunt) {
       },
       dist: {
         src: ['public/client/*.js'],
-        dest: 'public/dist/shortly-express.js'
+        dest: 'public/dist/shortly-express.min.js'
       },
       lib: {
         src: [
@@ -17,7 +17,7 @@ module.exports = function(grunt) {
           'public/lib/handlebars.js',
           'public/lib/backbone.js',
           ],
-        dest: 'public/dist/lib.js'
+        dest: 'public/dist/lib.min.js'
       }
     },
 
@@ -33,17 +33,17 @@ module.exports = function(grunt) {
 
     nodemon: {
       dev: {
-        script: 'server.js'
+        script: 'index.js'
       }
     },
 
     uglify: {
       dist:{
-        src: 'public/dist/shortly-express.js',
+        src: 'public/dist/shortly-express.min.js',
         dest: 'public/dist/shortly-express.min.js'
       },
       lib:{
-        src: 'public/dist/lib.js',
+        src: 'public/dist/lib.min.js',
         dest: 'public/dist/lib.min.js'
       }
     },
