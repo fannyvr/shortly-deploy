@@ -157,7 +157,7 @@ module.exports = function(grunt) {
 
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
-      // add your production server task here
+      // We would test normally but they fail and stop us from uploading
       // grunt.task.run('test');
       grunt.task.run('build');
       grunt.task.run('shell:gitAddApp');
