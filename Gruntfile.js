@@ -7,11 +7,12 @@ module.exports = function(grunt) {
         separator: ';'
       },
       dist: {
-        src: [
-          'public/client/*.js',
-          'public/lib/*.js'
-        ],
+        src: ['public/client/*.js'],
         dest: 'public/dist/shortly-express.js'
+      },
+      lib: {
+        src: ['public/lib/*.js'],
+        dest: 'public/dist/lib.js'
       }
     },
 
@@ -35,6 +36,10 @@ module.exports = function(grunt) {
       dist:{
         src: 'public/dist/shortly-express.js',
         dest: 'public/dist/shortly-express.min.js'
+      },
+      lib:{
+        src: 'public/dist/lib.js',
+        dest: 'public/dist/lib.min.js'
       }
     },
 
@@ -148,6 +153,7 @@ module.exports = function(grunt) {
   grunt.registerTask('upload', function(n) {
     if(grunt.option('prod')) {
       // add your production server task here
+      // grunt.task.run('test');
       grunt.task.run('build');
       grunt.task.run('shell:gitAddApp');
       grunt.task.run('shell:gitCommit');
