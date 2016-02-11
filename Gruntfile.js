@@ -11,7 +11,12 @@ module.exports = function(grunt) {
         dest: 'public/dist/shortly-express.js'
       },
       lib: {
-        src: ['public/lib/*.js'],
+        src: [
+          'public/lib/jquery.js',
+          'public/lib/underscore.js',
+          'public/lib/handlebars.js',
+          'public/lib/backbone.js',
+          ],
         dest: 'public/dist/lib.js'
       }
     },
