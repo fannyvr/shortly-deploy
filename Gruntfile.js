@@ -9,13 +9,13 @@ module.exports = function(grunt) {
       dist: {
         src: ['public/client/*.js'],
         dest: 'public/dist/shortly-express.min.js'
-      },
+      }
       lib: {
         src: [
+          'public/lib/backbone.js',
+          'public/lib/handlebars.js',
           'public/lib/jquery.js',
           'public/lib/underscore.js',
-          'public/lib/handlebars.js',
-          'public/lib/backbone.js',
           ],
         dest: 'public/dist/lib.min.js'
       }
@@ -55,7 +55,6 @@ module.exports = function(grunt) {
         'index.js'
       ],
       options: {
-        // changed force: 'true' to force: 'false' last night
         force: 'false',
         jshintrc: '.jshintrc',
         ignores: [
