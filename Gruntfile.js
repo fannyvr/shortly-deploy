@@ -92,28 +92,11 @@ module.exports = function(grunt) {
 
     shell: {
       prodServer: {
-
-      },
-      heroku: {
         command: 'git push heroku master',
         options: {
           stdout: true,
           stderr: true
-        }
-      },
-      gitAddApp: {
-        command: 'git add .',
-        options: {
-          stdout: true,
-          stderr: true
-        }
-      },
-      gitCommit:{
-        command: 'git commit -m "commited changes"',
-        options:{
-          stderr: true,
-          stdout: true
-        }
+        }  
       }
     } 
   });
@@ -160,9 +143,7 @@ module.exports = function(grunt) {
       // We would test normally but they fail and stop us from uploading
       // grunt.task.run('test');
       grunt.task.run('build');
-      grunt.task.run('shell:gitAddApp');
-      grunt.task.run('shell:gitCommit');
-      grunt.task.run('shell:heroku');  
+      grunt.task.run('shell:prodServer');  
     } else {
       grunt.task.run([ 'server-dev' ]);
     }

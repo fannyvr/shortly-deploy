@@ -10,7 +10,8 @@
   "license": "Proprietary",
   "private": true,
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "postinstall": "grunt build"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
