@@ -96,7 +96,22 @@ module.exports = function(grunt) {
         options: {
           stdout: true,
           stderr: true
-        }  
+        }        
+      },
+      gitAdd: {
+        command: 'git add .',
+        options: {
+          stdout: true,
+          stderr: true
+
+        }
+      },
+      gitCommit: {
+        command: 'git commit -am "Built production"',
+        options: {
+          stdout: true,
+          stderr: true
+        }
       }
     } 
   });
@@ -143,6 +158,8 @@ module.exports = function(grunt) {
       // We would test normally but they fail and stop us from uploading
       // grunt.task.run('test');
       grunt.task.run('build');
+      grunt.task.run('shell:gitAdd');
+      grunt.task.run('shell:gitCommit');
       grunt.task.run('shell:prodServer');  
     } else {
       grunt.task.run([ 'server-dev' ]);
