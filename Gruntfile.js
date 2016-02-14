@@ -10,15 +10,15 @@ module.exports = function(grunt) {
         src: ['public/client/*.js'],
         dest: 'public/dist/shortly-express.min.js'
       }
-      lib: {
-        src: [
-          'public/lib/backbone.js',
-          'public/lib/handlebars.js',
-          'public/lib/jquery.js',
-          'public/lib/underscore.js',
-          ],
-        dest: 'public/dist/lib.min.js'
-      }
+      // lib: {
+      //   src: [
+      //     'public/lib/backbone.js',
+      //     'public/lib/handlebars.js',
+      //     'public/lib/jquery.js',
+      //     'public/lib/underscore.js',
+      //     ],
+      //   dest: 'public/dist/lib.min.js'
+      // }
     },
 
     mochaTest: {
@@ -42,10 +42,10 @@ module.exports = function(grunt) {
         src: 'public/dist/shortly-express.min.js',
         dest: 'public/dist/shortly-express.min.js'
       },
-      lib:{
-        src: 'public/dist/lib.min.js',
-        dest: 'public/dist/lib.min.js'
-      }
+      // lib:{
+      //   src: 'public/dist/lib.min.js',
+      //   dest: 'public/dist/lib.min.js'
+      // }
     },
 
     jshint: {
